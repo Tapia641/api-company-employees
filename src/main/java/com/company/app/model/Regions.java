@@ -1,4 +1,4 @@
-package com.company.model;
+package com.company.app.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Region {
+public class Regions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,10 +14,12 @@ public class Region {
     private String region_name;
 
 
-    public Region() {
+    public Regions() {
+        super();
     }
 
-    public Region(Integer region_id, String region_name) {
+    public Regions(Integer region_id, String region_name) {
+        super();
         this.region_id = region_id;
         this.region_name = region_name;
     }

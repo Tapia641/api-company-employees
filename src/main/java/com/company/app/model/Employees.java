@@ -1,4 +1,4 @@
-package com.company.model;
+package com.company.app.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Employee {
+public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,12 @@ public class Employee {
     private Integer manager_id;
     private Integer department_id;
 
-    public Employee() {
+    public Employees() {
+        super();
     }
 
-    public Employee(Integer employee_id, String first_name, String last_name, String email, String phone_number, Date hire_date, Integer job_id, Double salary, Integer manager_id, Integer department_id) {
+    public Employees(Integer employee_id, String first_name, String last_name, String email, String phone_number, Date hire_date, Integer job_id, Double salary, Integer manager_id, Integer department_id) {
+        super();
         this.employee_id = employee_id;
         this.first_name = first_name;
         this.last_name = last_name;
