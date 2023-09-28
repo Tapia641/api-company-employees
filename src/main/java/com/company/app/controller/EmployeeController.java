@@ -23,17 +23,11 @@ public class EmployeeController{
 
     private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
-
     @GetMapping(path="/employees")
-    public List<Employees> listEmployees(){
-        logger.info("Retrieved {} employees on Controller:", service.listEmployees());
-        return service.listEmployees();
-    }
-
-    @GetMapping(path="/employees2")
     public ResponseEntity<List<Employees>> listEmployees2() {
         try {
             List<Employees> employees = service.listEmployees();
+            logger.info("Retrieved {} employees on Controller", employees.size());
             return new ResponseEntity<>(employees, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
