@@ -35,15 +35,20 @@ public class RegionController {
         } catch (Exception e) {
             // Log the exception
             logger.error("An error occurred while fetching regions.", e);
-
             // Return an INTERNAL_SERVER_ERROR status with an empty list or a custom error message
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
     @GetMapping(path = "/regions/{id}")
-    public Regions getRegion(@PathVariable Integer id) {
-        logger.info("Retrieved {} regions on Controller:", service.getRegionById(id).getRegion_name());
-        return service.getRegionById(id);
+    public ResponseEntity<Regions> getRegion(@PathVariable Integer id) {
+        try{
+            Regions region = service.getRegionById(id);
+            logger.info("Retrieved {} regions on Controller:", region.getRegion_name());
+            return new ResponseEntity<Regions>(region,HttpStatus.OK);
+        }catch (Exception e){
+            logger.error("An error occurred while fetching regions.", e);
+            return new ResponseEntity<Regions>(HttpStatus.NOT_FOUND);
+        }
     }
 }
