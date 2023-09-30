@@ -21,6 +21,9 @@ target/
 .mvn
 target
 src/main/resources/application.properties
+HELP.md
+mvnw
+mvnw.cmd
 
 ### NetBeans ###
 /nbproject/private/
