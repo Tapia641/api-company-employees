@@ -115,7 +115,7 @@ Before running the API, ensure you have the following:
 
 1. Clone this repository to your local machine.
 
-2. Configure your database connection by modifying the `application.properties` file.
+2. Configure your database connection by modifying the `application.properties` file on `src/main/resources/`.
 
 3. Build and run the API using the following command:
 
