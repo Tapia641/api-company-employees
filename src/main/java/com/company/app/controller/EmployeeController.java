@@ -61,7 +61,16 @@ public class EmployeeController{
     public ResponseEntity<?> updateEmployees(@RequestBody Employees employee, @PathVariable Integer id){
         try {
             Employees employee_exists = service.getEmployeeById(id);
-            service.saveEmployee(employee);
+            employee_exists.setEmail(employee.getEmail());
+            employee_exists.setDepartment_id(employee.getDepartment_id());
+            employee_exists.setFirst_name(employee.getFirst_name());
+            employee_exists.setHire_date(employee.getHire_date());
+            employee_exists.setJob_id(employee.getJob_id());
+            employee_exists.setSalary(employee.getSalary());
+            employee_exists.setLast_name(employee.getLast_name());
+            employee_exists.setManager_id(employee.getManager_id());
+            employee_exists.setPhone_number(employee.getPhone_number());
+            service.saveEmployee(employee_exists);
             return new ResponseEntity<Employees>(HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<Employees>(HttpStatus.INTERNAL_SERVER_ERROR);
